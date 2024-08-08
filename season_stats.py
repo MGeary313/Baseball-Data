@@ -74,11 +74,11 @@ with pd.ExcelWriter('mlb_stats.xlsx') as writer:
                 
                 # Write the DataFrame to a specific sheet in the Excel file
                 df.to_excel(writer, sheet_name=team, index=False)
-                print(f"Data for {team} has been written to the spreadsheet.")
+                print(f"Data for the {team.title()} has been written to the spreadsheet.")
             else:
-                print(f"No table found on the page for {team}")
+                print(f"No table found on the page for the {team.title()}")
         else:
-            print(f"Failed to retrieve the page for {team}. Status code: {response.status_code}")
+            print(f"Failed to retrieve the page for the {team.title()}. Status code: {response.status_code}")
     
     # Create a DataFrame for all players combined
     all_players_df = pd.DataFrame(all_players_data, columns=headers)
